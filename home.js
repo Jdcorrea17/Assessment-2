@@ -51,21 +51,21 @@ console.log(greetUser('Joshua'))
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
-let zipCode = deliveryAreaZipCodes
+// let zipCode = deliveryAreaZipCodes
 
-function canWeDeliver(zipCode) {
-    for(let i = 0; i < zipCode.length; i++){
-        if(zipCode === '85205'){
-        return `${zipCode} You're in our delivery zone`
-    } else if(zipCode !== '85205') {
-        return `${zipCode} Sorry, we can't deliver to that address`
+const canWeDeliver = (zipCode) => {
+        if(deliveryAreaZipCodes.includes(zipCode)){
+        return "You're in our delivery zone!"
     } else {
-        return zipCode
-    }
-}
+        return "Sorry, we can't deliver to that address"
+    } 
 }
 
-console.log(canWeDeliver(deliveryAreaZipCodes))
+let delivery = canWeDeliver(85205)
+console.log(delivery)
+let noDelivery = canWeDeliver(85215)
+console.log(noDelivery)
+
 
 /* 
     Problem 2 Continued
@@ -86,7 +86,16 @@ console.log(canWeDeliver(deliveryAreaZipCodes))
 
 // CODE HERE
 
-console.log(deliveryAreaZipCodes.includes(85205))
+const canWeDeliverTwo = (zipCode) => {
+    for(let i = 0; i < deliveryAreaZipCodes.length; i++){
+        if(deliveryAreaZipCodes[i] === zipCode){
+        return `You're in our delivery zone`
+        }
+    }
+    return `Sorry, we can't deliver to that address`
+}
+
+console.log(canWeDeliver(85218))
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -107,7 +116,7 @@ const deals = [
         desc: 'Applied to your entire order when you spend $30 or more'
     }, 
     {
-        title2: 'Free Kids Meal with 2 Regular Entrees', 
+        title: 'Free Kids Meal with 2 Regular Entrees', 
         desc: '   This deal lasts until the end of March! '
     }
 ]
@@ -122,8 +131,10 @@ const deals = [
 */
 
 //CODE HERE
-
-console.log(deals.replace('15', '10'))
+// deals(title.replace)
+// console.log(deals.title)
+deals[0].title = deals[0].title.replace('15%', '10%')
+console.log(deals)
 
 /*
     The restaurant is going to continue its
@@ -139,5 +150,5 @@ console.log(deals.replace('15', '10'))
 */
 
 //CODE HERE
-
-console.log(deals.replace('March', 'April'))
+deals[1].desc = deals[1].desc.replace('March', 'April')
+console.log(deals)

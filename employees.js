@@ -75,13 +75,14 @@ empOne.getSchedule()
 
 //CODE HERE
 
-let empTwo = new Employee('Nick', 'weekday mornings, weekday afternoons')
-
+// let empTwo = new Employee('Nick', 'weekday mornings, weekday afternoons')
+let empTwo = {...empOne}
 
 // let [this.name] = ['Nick'] 
 // {this.name, 'Nick'} = empTwo
 
-empTwo.getSchedule()
+empTwo.name = 'Nick'
+console.log(empTwo.name)
 
 
 
@@ -121,7 +122,8 @@ class Manager extends Employee{
         console.log(`${this.name} manages ${this.emloyees}`)
     }
     addEmployee(emp){
-        emp.push('')
+        this.emloyees = emp
+        console.log(this.emloyees)
     }
 }
 
@@ -157,7 +159,10 @@ manager.getEmployees()
 
 //CODE HERE 
 
-let newEmp1 = addEmployee('josh')
+let emp = 'Coach'
+// console.log(addEmployee('joshua'))
+manager.addEmployee(emp)
+
 
 /*
     Call the `getEmployees` method on the
@@ -167,4 +172,4 @@ let newEmp1 = addEmployee('josh')
 
 //CODE HERE
 
-console.log(addEmployee())
+manager.getEmployees()
